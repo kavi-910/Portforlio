@@ -1,0 +1,18 @@
+{
+    "jdk.jdkhome": "c:\\Users\\BM\\Downloads\\untitled5\\untitled5\\src\\main\\java\\OpenJDK-23",
+    "npm.enableRunFromFolder": true,
+    "npm.packageManager": "npm",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html",
+        "javascript": "javascript",
+        "css": "css",
+        "javascriptreact": "javascript",
+        "typescript": "typescript",
+        "typescriptreact": "typescript"
+    },
+    "tailwindcss-intellisense.trace.server": "messages",
+    "tailwindCSS.emmetCompletions": true,
+    "css.validate": false
+
+}

@@ -1,0 +1,31 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-primary bg-primary text-white leading-loose;
+    }
+} */
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1c1c22;
+  --color-accent: #00ff99;
+  --color-accent-hover: #00e187;
+  --color-luminousPink: #FF6EC7
+
+  /* this creates the `font-primary` utility */
+  --font-primary: var(--font-jetbrainsMono), monospace;
+
+  /* optional: match your breakpoints from config */
+  --breakpoint-sm: 40rem;   /* 640px */
+  --breakpoint-md: 48rem;   /* 768px */
+  --breakpoint-lg: 60rem;   /* 960px */
+  --breakpoint-xl: 75rem;   /* 1200px */
+}
+
+@layer base {
+  body { @apply font-primary bg-primary text-white leading-loose; }
+}
