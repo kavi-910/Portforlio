@@ -22,7 +22,7 @@
   }
 
   .h1 { 
-    @apply text-[48px] xl:text-[88px] leading-[1.1] font-semibold;
+    @apply text-[45px] xl:text-[60px] leading-[1.1] font-semibold;
   }
 
   .h2 { 
