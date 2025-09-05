@@ -16,20 +16,20 @@ const links = [
 
 export default function MobileNav() {
   const pathname = usePathname();
-
-  // control the drawer open/close
   const [open, setOpen] = useState(false);
-  
-  const CLOSE_DELAY = 5000; // ms
+
+  // auto-close a few seconds after opening (optional)
+  const CLOSE_DELAY = 5000;
   const timerRef = useRef(null);
-  
-  // close automatically after route changes
   useEffect(() => {
     if (!open) return;
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => setOpen(false), CLOSE_DELAY);
-    return () => clearTimeout(timerRef.current);
+    return () => timerRef.current && clearTimeout(timerRef.current);
   }, [pathname, open]);
+
+  // active = exact match for "/", prefix match for the rest
+  const isActive = (to) => (to === "/" ? pathname === "/" : pathname.startsWith(to));
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -37,7 +37,6 @@ export default function MobileNav() {
         <CiMenuFries className="text-[32px] text-luminousPink" />
       </SheetTrigger>
 
-      {/* aria-label avoids the Radix DialogTitle warning */}
       <SheetContent className="flex flex-col" aria-label="Mobile menu">
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
@@ -49,17 +48,22 @@ export default function MobileNav() {
         </div>
 
         {/* nav */}
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col justify-center items-center gap-3 px-4">
           {links.map((link) => {
-            const active = link.path === pathname;
+            const active = isActive(link.path);
             return (
               <Link
                 key={link.path}
                 href={link.path}
                 onClick={() => setOpen(false)}
-                className={`text-xl capitalize transition-all hover:text-luminousPink ${
-                  active ? "text-luminousPink border-b-2 border-luminousPink" : ""
-                }`}
+                aria-current={active ? "page" : undefined}
+                className="
+                  w-full max-w-sm rounded-xl px-4 py-3 text-lg capitalize
+                  transition-colors
+                  hover:text-luminousPink
+                  aria-[current=page]:bg-luminousPink
+                  aria-[current=page]:text-primary
+                "
               >
                 {link.name}
               </Link>
@@ -70,4 +74,3 @@ export default function MobileNav() {
     </Sheet>
   );
 }
-
