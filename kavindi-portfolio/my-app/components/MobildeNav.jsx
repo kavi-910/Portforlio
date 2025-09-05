@@ -1,10 +1,12 @@
 "use client";
 
+
 import { useEffect, useRef, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+
 
 const links = [
   { name: "home", path: "/" },
@@ -14,22 +16,25 @@ const links = [
   { name: "contact", path: "/contact" },
 ];
 
+
 export default function MobileNav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
 
-  // auto-close a few seconds after opening (optional)
-  const CLOSE_DELAY = 5000;
+
+  // control the drawer open/close
+  const [open, setOpen] = useState(false);
+ 
+  const CLOSE_DELAY = 5000; // ms
   const timerRef = useRef(null);
+ 
+  // close automatically after route changes
   useEffect(() => {
     if (!open) return;
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => setOpen(false), CLOSE_DELAY);
-    return () => timerRef.current && clearTimeout(timerRef.current);
+    return () => clearTimeout(timerRef.current);
   }, [pathname, open]);
 
-  // active = exact match for "/", prefix match for the rest
-  const isActive = (to) => (to === "/" ? pathname === "/" : pathname.startsWith(to));
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -37,6 +42,8 @@ export default function MobileNav() {
         <CiMenuFries className="text-[32px] text-luminousPink" />
       </SheetTrigger>
 
+
+      {/* aria-label avoids the Radix DialogTitle warning */}
       <SheetContent className="flex flex-col" aria-label="Mobile menu">
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
@@ -47,23 +54,19 @@ export default function MobileNav() {
           </Link>
         </div>
 
+
         {/* nav */}
-        <nav className="flex flex-col justify-center items-center gap-3 px-4">
+        <nav className="flex flex-col justify-center items-center gap-8">
           {links.map((link) => {
-            const active = isActive(link.path);
+            const active = link.path === pathname;
             return (
               <Link
                 key={link.path}
                 href={link.path}
                 onClick={() => setOpen(false)}
-                aria-current={active ? "page" : undefined}
-                className="
-                  w-full max-w-sm rounded-xl px-4 py-3 text-lg capitalize
-                  transition-colors
-                  hover:text-luminousPink
-                  aria-[current=page]:bg-luminousPink
-                  aria-[current=page]:text-primary
-                "
+                className={`text-xl capitalize transition-all hover:text-luminousPink ${
+                  active ? "text-luminousPink border-b-2 border-luminousPink" : ""
+                }`}
               >
                 {link.name}
               </Link>
@@ -74,3 +77,8 @@ export default function MobileNav() {
     </Sheet>
   );
 }
+
+
+
+
+
