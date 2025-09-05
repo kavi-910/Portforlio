@@ -17,7 +17,7 @@ const info = [
     {
         icon: <FaEnvelope />,
         title: "Email",
-        description: "kavindiwijesunara910@gmail.com",
+        description: "kavindiwijesundara910@gmail.com",
     },
     {
         icon: <FaMapMarkerAlt />,
@@ -41,7 +41,7 @@ export default function Contact() {
             }}
             className="py-6"
         >
-        <div className="container mx-auto">
+        <div className="container mx-auto px-[15px]">
             <div className="flex flex-col xl:flex-row gap-[30px]">
                 {/* form */}
                 <div className="xl:w-[54%] order-2 xl:order-none">
@@ -68,7 +68,7 @@ export default function Contact() {
                             <SelectContent>
                                 <SelectGroup>
                                     <SelectLabel>Select a service</SelectLabel>
-                                    <SelectItem value="Web Develpment">Web Development</SelectItem>
+                                    <SelectItem value="Web Development">Web Development</SelectItem>
                                     <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
                                     <SelectItem value="AI & Machine Learning">AI & Machine Learning</SelectItem>
                                 </SelectGroup>
@@ -82,7 +82,7 @@ export default function Contact() {
                             placeholder="Type your message here."
                         />
                         {/* btn */}
-                        <Button size="md" className="max-w-40">
+                        <Button type="submit" size="md" className="max-w-40">
                             Send message
                         </Button>
                     </form>
