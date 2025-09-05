@@ -23,37 +23,57 @@ import "swiper/css/navigation";
 
 
 const projects = [
-  {
+    {
     num: "01",
-    category: "AI",
-    title: "project 1",
-    description: "blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    stack: [{ name: "html5" }, { name: "css3" }, { name: "javascript" }],
-    image: "/assets/work/sri-ayu.png",
-    live: "",
-    github: "",
+    category: "AI & Web",
+    title: "Sri Ayu — AI-Driven Ayurvedic Wellness Platform",
+    description:
+      "Personalized Ayurvedic wellness recommendations with ML (symptom intake → herb/formulation matching). Privacy-first design; 2024–2025 (ongoing). Watch the demo and explore the project.",
+    stack: [
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Python" },
+      { name: "FastAPI" },
+      { name: "scikit-learn" }
+    ],
+    image: "/assets/work/sri-ayu-1.png",
+    live: "https://www.youtube.com/watch?v=-Xa89k38jSU",     
+    github: "https://github.com/Sachinthana-Pathiranage/Sri-Ayu-Ayurvedic-Care/tree/Kavindi"    
+   
   },
   {
     num: "02",
     category: "ML",
-    title: "project 2",
+    title: "Prefina — AI Recommendations for Apparel eCommerce",
     description:
-      "blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    stack: [{ name: "html3" }, { name: "tailwind" }],
-    image: "/assets/work/sri-ayu.png",
-    live: "",
-    github: "",
+      "Real-time, contextual recommendations for Shopify apparel merchants using privacy-preserving UUID tracking and a scalable microservices design. Includes from-scratch ML algos (Linear/Logistic Regression, KNN, SVM, K-means, Hierarchical). 2024; 2025 (ongoing).",
+    stack: [
+      { name: "Python" },
+      { name: "PyTorch" },
+      { name: "scikit-learn" },
+      { name: "FastAPI" },
+      { name: "Docker" }
+    ],
+    image: "/assets/work/prefina-4.png",
+    live: "",     
+    github: "https://github.com/kavi-910/Prefina_Recommendation_System"   
   },
   {
-    num: "03",
-    category: "Software",
-    title: "project 3",
-    description:
-      "blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    stack: [{ name: "html5" }, { name: "css3" }],
-    image: "/assets/work/sri-ayu.png",
-    live: "",
-    github: "",
+  num: "03",
+  category: "Web",
+  title: "Portfolio Website",
+  description:
+    "Responsive personal portfolio built with Next.js, Tailwind CSS, Framer Motion animations, shadcn/ui components, and a Swiper project carousel.",
+  stack: [
+    { name: "next.js" },
+    { name: "tailwind" },
+    { name: "framer-motion" },
+    { name: "shadcn-ui" },
+    { name: "swiper" }
+  ],
+  image: "/assets/work/portfolio.png", 
+  live: "https://portforlio-2ttz.vercel.app/", 
+  github: "https://github.com/kavi-910/Portforlio" 
   },
 ];
 
@@ -92,7 +112,7 @@ const Work = () => {
               {/* stack */}
               <ul className="flex gap-4">
                 {project.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-luminousPink">
+                  <li key={index} className="text-l text-luminousPink max-w-[50ch]">
                     {item.name}
                     {index !== project.stack.length - 1 && ","}
                   </li>
@@ -134,7 +154,7 @@ const Work = () => {
           </div>
 
           {/* RIGHT (Swiper) */}
-          <div className="w-full xl:w-[55%]">
+          <div className="w-full xl:w-[60%]">
             <Swiper
               modules={[Autoplay, Pagination, Navigation, Mousewheel]}
               spaceBetween={30}
@@ -142,14 +162,14 @@ const Work = () => {
               onSlideChange={handleSlideChange}
               grabCursor={false}
               loop
-              autoplay={{ delay: 3000, disableOnInteraction: false }}  // auto-swipe
+              autoplay={{ delay: 4000, disableOnInteraction: false }}  // auto-swipe
               pagination={{ clickable: true }}
               navigation
               mousewheel={{ forceToAxis: true, sensitivity: 1 }}
 
               // slider-buttons colors & sizes
               style={{
-                "--swiper-theme-color": "#FFFFFF",                 // main accent (affects both)
+                "--swiper-theme-color": "#FFFFFF",                 
                 "--swiper-pagination-color": "#FFFFFF",            // bullets active
                 "--swiper-pagination-bullet-inactive-color": "#fff",
                 "--swiper-pagination-bullet-inactive-opacity": "0.4",

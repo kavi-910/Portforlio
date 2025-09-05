@@ -52,38 +52,14 @@ const about = {
 const experience = {
     icon: '',
     title: 'My Experience',
-    description: 'An AI-powered application designed to modernize and scale traditional Ayurvedic practices in Sri Lanka',
+    description: 'I am an undergraduate pursuing a 12-month, full-time internship in Machine Learning, Artificial Intelligence, and Data Science (immediate start). My primary interest is applied ML and data, and I’m open to adjacent technical responsibilities across the stack. Remote or on-site',
     items: [
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "Summer 2021", 
-        },
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "2019 - 2021", 
-        },
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "2020 - 2025", 
-        },
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "2020 - 2025", 
-        },
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "2020 - 2025", 
-        },
-        {
-           company: "blah blah blah",
-           position: "blah blah blah",
-           duration: "2020 - 2025", 
-        },
+        // {
+        //    company: "blah blah blah",
+        //    position: "blah blah blah",
+        //    duration: "Summer 2021", 
+        // },
+    
     ],
 };
 
@@ -104,9 +80,9 @@ const education = {
            duration: "2024 - 2027", 
         },
         {
-           school: "Visakha Vidyalaya",
-           stream: "Physical Science",
-           duration: "2022", 
+           university: "Visakha Vidyalaya",
+           degree: "Physical Science",
+           duration: "2013 - 2022", 
         },
         
     ],
@@ -158,6 +134,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/compo
 
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { motion } from 'framer-motion';
+import { University } from 'lucide-react';
 
 const Resume = () => {
     return (

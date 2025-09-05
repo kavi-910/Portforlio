@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import { Select, SelectContent, SelectLabel, SelectGroup, SelectTrigger, SelectItem } from "@/components/ui/select";
+import { Select, SelectContent, SelectLabel, SelectGroup, SelectTrigger, SelectItem, SelectValue } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -27,9 +27,11 @@ const info = [
 ];
 
 import { motion } from "framer-motion";
-import { SelectValue } from "@radix-ui/react-select";
+import { useState } from "react";
 
-const Contact = () => {
+export default function Contact() {
+
+  const [service, setService] = useState("");
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -43,33 +45,39 @@ const Contact = () => {
             <div className="flex flex-col xl:flex-row gap-[30px]">
                 {/* form */}
                 <div className="xl:w-[54%] order-2 xl:order-none">
-                    <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+                    <form 
+                        action="https://formspree.io/f/myzdbozv"
+                        method="POST"
+                        className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+                    >
                         <h3 className="text-4xl text-luminousPink">Let's work together</h3>
-                        <p className="text-white/60 sm:max-w-[70ch] break-words">blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa blaaaaa blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa blaaaaaaaaaaaaaaaaa
+                        <p className="text-white/60 sm:max-w-[70ch] break-words">I’m an AI & Data Science undergrad available for projects and internships. Share your idea, and I’ll follow up with a plan.
                         </p>
                         {/* input */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <Input type="firstname" placeholder="Firstname"/>
-                            <Input type="lastname" placeholder="Lastname"/>
-                            <Input type="email" placeholder="Email address"/>
-                            <Input type="phone" placeholder="Phone number"/>
+                            <Input name="firstname" placeholder="Firstname"/>
+                            <Input name="lastname" placeholder="Lastname"/>
+                            <Input name="email" type="email" placeholder="Email address"/>
+                            <Input name="phone" placeholder="Phone number"/>
                         </div>
                         {/* select */}
-                        <Select>
+                        <Select value={service} onValueChange={setService}>
                             <SelectTrigger className="w-full">
                                 <SelectValue placeholder="Select a service" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectGroup>
                                     <SelectLabel>Select a service</SelectLabel>
-                                    <SelectItem value="est">Web Development</SelectItem>
-                                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                                    <SelectItem value="mst">AI</SelectItem>
+                                    <SelectItem value="Web Develpment">Web Development</SelectItem>
+                                    <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+                                    <SelectItem value="AI & Machine Learning">AI & Machine Learning</SelectItem>
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
+                        <input type="hidden" name="service" value={service} />
                         {/* textarea */}
-                        <Textarea 
+                        <Textarea
+                            name="message" 
                             className="h-[200px]" 
                             placeholder="Type your message here."
                         />
@@ -103,4 +111,3 @@ const Contact = () => {
     );
 }
 
-export default Contact;

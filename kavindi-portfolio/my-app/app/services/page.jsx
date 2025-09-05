@@ -8,26 +8,14 @@ const services = [
         num:'01',
         title: 'Sri-Āyu Ayurvedic CareApplication',
         description: 'An AI-powered application designed to modernize and scale traditional Ayurvedic practices in Sri Lanka',
-        href: ""
+        href: "https://github.com/Sachinthana-Pathiranage/Sri-Ayu-Ayurvedic-Care/tree/Kavindi"
     },
     {
         num:'02',
         title: 'Prefina Recommendation System',
         description: 'A plug-and-play AI-powered recommendation engine for apparel e-commerce sites.',
-        href: ""
-    },
-    {
-        num:'03',
-        title: 'Sri-Āyu Ayurvedic CareApplication',
-        description: 'An AI-powered application designed to modernize and scale traditional Ayurvedic practices in Sri Lanka',
-        href: ""
-    },
-    {
-        num:'04',
-        title: 'Sri-Āyu Ayurvedic CareApplication',
-        description: 'An AI-powered application designed to modernize and scale traditional Ayurvedic practices in Sri Lanka',
-        href: ""
-    },
+        href: "https://github.com/kavi-910/Prefina_Recommendation_System"
+    }
     
 ]
 
