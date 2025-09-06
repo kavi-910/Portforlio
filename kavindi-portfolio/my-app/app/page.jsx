@@ -32,7 +32,7 @@ const Home = () => {
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                  href="/files/kavindi-rangana-wijesundara-cv.pdf"
+                  href="/files/Kavindi-Rangana_CV.pdf"
                   download
               >
                 <Button
